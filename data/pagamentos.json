@@ -1,0 +1,10 @@
+[
+    {
+        "id": "0beaf1e4-2bf3-46b4-8ab4-127fd02aeaf0",
+        "pedido_id": "4e154e91-b7d4-48bd-badd-27f1d24c7b8d",
+        "cliente_id": "26e3cd87-b808-4023-b5da-58cf24cacede",
+        "valor": 108.0,
+        "forma": "PIX",
+        "data_pagamento": "2025-07-08 19:57:46"
+    }
+]

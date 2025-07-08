@@ -1,0 +1,12 @@
+[
+    {
+        "id": "4e154e91-b7d4-48bd-badd-27f1d24c7b8d",
+        "cliente_id": "26e3cd87-b808-4023-b5da-58cf24cacede",
+        "itens": [
+            "Combinado Simples",
+            "Combinado Especial",
+            "Uramaki"
+        ],
+        "valor_total": 108.0
+    }
+]
