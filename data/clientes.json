@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "id": "79ce9721-3d39-4d88-b0e1-3f03215a1820",
+        "nome": "Rodrigo Thadeu",
+        "cpf": "12345678900",
+        "telefone": "71999999999",
+        "regiao_id": "097e5704-a78e-4cd6-a3d2-8eb5f5f2c606"
+    }
+]

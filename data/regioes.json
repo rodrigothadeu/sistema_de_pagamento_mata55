@@ -3,5 +3,10 @@
         "id": "4ef9781c-ba40-4af0-8123-36eb89f19336",
         "nome": "Centro",
         "taxa_entrega": 7.5
+    },
+    {
+        "id": "097e5704-a78e-4cd6-a3d2-8eb5f5f2c606",
+        "nome": "Brotas",
+        "taxa_entrega": 6.5
     }
 ]

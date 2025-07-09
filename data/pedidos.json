@@ -8,5 +8,15 @@
             "Uramaki"
         ],
         "valor_total": 108.0
+    },
+    {
+        "id": "2246cf5e-485e-45cb-8b01-636305d14ea3",
+        "cliente_id": "79ce9721-3d39-4d88-b0e1-3f03215a1820",
+        "itens": [
+            "Sashimi",
+            "Combinado Especial",
+            "Sunomono"
+        ],
+        "valor_total": 88.0
     }
 ]
