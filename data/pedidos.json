@@ -9,5 +9,27 @@
             }
         ],
         "total": 32.0
+    },
+    {
+        "id": "c7a25dbe-cb79-4bfa-8ec0-5d600c9df282",
+        "cliente_id": "a917db24-17c0-4da6-9ad1-095378dde8bb",
+        "itens": [
+            {
+                "nome": "Sushi de Salmão",
+                "preco": 32.0
+            }
+        ],
+        "total": 32.0
+    },
+    {
+        "id": "f0eb1f6d-4cbf-438f-80fa-b799b82b1b1e",
+        "cliente_id": "a917db24-17c0-4da6-9ad1-095378dde8bb",
+        "itens": [
+            {
+                "nome": "Temaki",
+                "preco": 40.0
+            }
+        ],
+        "total": 40.0
     }
 ]

@@ -7,6 +7,14 @@ class PagamentoService:
     def __init__(self, pagamento_cls, descricao):
         self.pagamento_cls = pagamento_cls
         self.descricao = descricao
+        
+    def processar_pagamento_manual(self, **kwargs):
+        pagamento = self.pagamento_cls(**kwargs)
+        pagamentos = carregar_dados(CAMINHO_PAGAMENTOS)
+        pagamentos.append(pagamento.pagar())
+        salvar_dados(CAMINHO_PAGAMENTOS, pagamentos)
+        logger.info(f"[VIEW] Pagamento {self.descricao} realizado | Pedido: {pagamento.pedido_id} | Valor: R$ {pagamento.valor:.2f}")
+        return pagamento
 
     def processar_pagamento(self):
         try:

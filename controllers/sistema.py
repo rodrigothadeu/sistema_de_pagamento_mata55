@@ -112,7 +112,6 @@ def realizar_pagamento_debito():
 
 
 # ------------------ CADASTRO DE PEDIDO ------------------
-
 def cadastrar_pedido():
     clientes = carregar_dados(CAMINHO_CLIENTES)
     if not clientes:

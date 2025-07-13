@@ -9,17 +9,20 @@ from controllers.sistema import (
 )
 from services.relatorio_pdf import gerar_relatorio_pdf
 
+from views.interface_view import iniciar_interface_grafica
+
 def menu():
     while True:
         print("\n====== Sistema de Pagamento UM Sushi ======")
         print("1 - Cadastrar cliente")
         print("2 - Cadastrar região")
-        print("3 - Gerar pedido simulado (mock)")
+        print("3 - Gerar pedido simulado")
         print("4 - Realizar pagamento via PIX")
         print("5 - Realizar pagamento via Cartão de Crédito")
         print("6 - Realizar pagamento via Cartão de Débito")
         print("7 - Gerar relatório em PDF")
-        print("8 - Cadastrar pedido real")  # Nova opção
+        print("8 - Cadastrar pedido com itens reais")
+        print("9 - Abrir interface gráfica")
         print("0 - Sair")
         opcao = input("Escolha uma opção: ")
 
@@ -39,6 +42,8 @@ def menu():
             gerar_relatorio_pdf()
         elif opcao == "8":
             cadastrar_pedido()
+        elif opcao == "9":
+            iniciar_interface_grafica()
         elif opcao == "0":
             print("Encerrando o sistema.")
             break

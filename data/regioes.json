@@ -8,5 +8,10 @@
         "id": "097e5704-a78e-4cd6-a3d2-8eb5f5f2c606",
         "nome": "Brotas",
         "taxa_entrega": 6.5
+    },
+    {
+        "id": "434e76f0-0f50-4600-b63f-f08f27129fbe",
+        "nome": "Federação",
+        "taxa_entrega": 4.8
     }
 ]

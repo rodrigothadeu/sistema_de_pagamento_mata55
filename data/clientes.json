@@ -5,5 +5,12 @@
         "cpf": "12345678900",
         "telefone": "71999999999",
         "regiao_id": "097e5704-a78e-4cd6-a3d2-8eb5f5f2c606"
+    },
+    {
+        "id": "6dc65d6d-6239-4bcb-991e-80edfee49042",
+        "nome": "Cadastro Cliente",
+        "cpf": "01293498700",
+        "telefone": "71999999999",
+        "regiao_id": "097e5704-a78e-4cd6-a3d2-8eb5f5f2c606"
     }
 ]
