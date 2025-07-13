@@ -22,5 +22,21 @@
         "valor": 108.0,
         "forma": "PIX",
         "data_pagamento": "2025-07-09 10:51:56"
+    },
+    {
+        "id": "981d5a42-355b-41c0-a148-fb43fb606c82",
+        "pedido_id": "0da24f44-c6f7-4e12-b6cb-6afbc19aef17",
+        "cliente_id": "a917db24-17c0-4da6-9ad1-095378dde8bb",
+        "valor": 32.0,
+        "forma": "PIX",
+        "data_pagamento": "2025-07-13 01:20:29"
+    },
+    {
+        "id": "b8bc7b99-ce7a-4186-88e8-151081946a04",
+        "pedido_id": "0da24f44-c6f7-4e12-b6cb-6afbc19aef17",
+        "cliente_id": "a917db24-17c0-4da6-9ad1-095378dde8bb",
+        "valor": 32.0,
+        "forma": "Crédito",
+        "data_pagamento": "2025-07-13 01:35:48"
     }
 ]

@@ -12,6 +12,15 @@ from utils.arquivo import carregar_dados, salvar_dados
 from models.pedido import Pedido
 from utils.arquivo import carregar_dados, salvar_dados
 
+from services.pagamento_service import PagamentoService
+from data.caminhos import CAMINHO_PEDIDOS, CAMINHO_PAGAMENTOS
+
+from utils.formatador import (
+    validar_numero_cartao,
+    validar_validade_cartao,
+    validar_cvv
+)
+
 CAMINHO_CLIENTES = 'data/clientes.json'
 CAMINHO_REGIOES = 'data/regioes.json'
 CAMINHO_PEDIDOS = 'data/pedidos.json'
@@ -85,42 +94,8 @@ def gerar_pedido_mock():
 # ------------------ PAGAMENTOS ------------------
 def realizar_pagamento(pagamento_cls, descricao):
     try:
-        pedidos = carregar_dados(CAMINHO_PEDIDOS)
-        if not pedidos:
-            print("❌ Nenhum pedido disponível.")
-            return
-
-        print(f"\n--- Pagamento via {descricao} ---")
-        for i, pedido in enumerate(pedidos):
-            print(f"{i + 1} - Pedido ID: {pedido['id']}, Cliente: {pedido['cliente_id']}, Valor: R$ {pedido['valor_total']:.2f}")
-
-        pedido_selecionado = pedidos[int(input("Escolha o número do pedido: ")) - 1]
-
-        if pagamento_cls in [PagamentoCartaoCredito, PagamentoCartaoDebito]:
-            numero_cartao = input("Número do cartão (16 dígitos): ")
-            validade = input("Validade (MM/AA): ")
-            cvv = input("CVV (3 dígitos): ")
-            pagamento = pagamento_cls(
-                pedido_id=pedido_selecionado['id'],
-                cliente_id=pedido_selecionado['cliente_id'],
-                valor=pedido_selecionado['valor_total'],
-                numero_cartao=numero_cartao,
-                validade=validade,
-                cvv=cvv
-            )
-        else:
-            pagamento = pagamento_cls(
-                pedido_id=pedido_selecionado['id'],
-                cliente_id=pedido_selecionado['cliente_id'],
-                valor=pedido_selecionado['valor_total']
-            )
-
-        pagamentos = carregar_dados(CAMINHO_PAGAMENTOS)
-        pagamentos.append(pagamento.pagar())
-        salvar_dados(CAMINHO_PAGAMENTOS, pagamentos)
-
-        print(f"\n✅ Pagamento via {descricao} realizado com sucesso!")
-        logger.info(f"Pagamento {descricao} realizado | Pedido ID: {pagamento.pedido_id} | Valor: R$ {pagamento.valor:.2f}")
+        pagamento_service = PagamentoService(pagamento_cls, descricao)
+        pagamento_service.processar_pagamento()
     except (ValueError, IndexError):
         tratar_erro("Pedido inválido.")
     except Exception as e:
