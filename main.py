@@ -2,6 +2,7 @@ from controllers.sistema import (
     cadastrar_cliente,
     cadastrar_regiao,
     gerar_pedido_mock,
+    cadastrar_pedido,
     realizar_pagamento_pix,
     realizar_pagamento_credito,
     realizar_pagamento_debito
@@ -13,11 +14,12 @@ def menu():
         print("\n====== Sistema de Pagamento UM Sushi ======")
         print("1 - Cadastrar cliente")
         print("2 - Cadastrar região")
-        print("3 - Gerar pedido simulado")
+        print("3 - Gerar pedido simulado (mock)")
         print("4 - Realizar pagamento via PIX")
         print("5 - Realizar pagamento via Cartão de Crédito")
         print("6 - Realizar pagamento via Cartão de Débito")
         print("7 - Gerar relatório em PDF")
+        print("8 - Cadastrar pedido real")  # Nova opção
         print("0 - Sair")
         opcao = input("Escolha uma opção: ")
 
@@ -35,6 +37,8 @@ def menu():
             realizar_pagamento_debito()
         elif opcao == "7":
             gerar_relatorio_pdf()
+        elif opcao == "8":
+            cadastrar_pedido()
         elif opcao == "0":
             print("Encerrando o sistema.")
             break

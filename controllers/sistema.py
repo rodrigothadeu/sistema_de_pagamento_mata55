@@ -1,3 +1,5 @@
+import uuid
+
 from utils.erros import tratar_erro
 from services.logger import logger
 
@@ -7,11 +9,15 @@ from models.pedido_mock import PedidoMock
 from services.pagamento_pix import PagamentoPix
 from services.pagamento_cartao import PagamentoCartaoCredito, PagamentoCartaoDebito
 from utils.arquivo import carregar_dados, salvar_dados
+from models.pedido import Pedido
+from utils.arquivo import carregar_dados, salvar_dados
 
 CAMINHO_CLIENTES = 'data/clientes.json'
 CAMINHO_REGIOES = 'data/regioes.json'
 CAMINHO_PEDIDOS = 'data/pedidos.json'
 CAMINHO_PAGAMENTOS = 'data/pagamentos.json'
+CAMINHO_CLIENTES = "data/cliente.json"
+CAMINHO_PEDIDOS = "data/pedidos.json"
 
 # ------------------ CLIENTE ------------------
 def cadastrar_cliente():
@@ -128,3 +134,40 @@ def realizar_pagamento_credito():
 
 def realizar_pagamento_debito():
     realizar_pagamento(PagamentoCartaoDebito, "Cartão de Débito")
+
+
+# ------------------ CADASTRO DE PEDIDO ------------------
+
+def cadastrar_pedido():
+    clientes = carregar_dados(CAMINHO_CLIENTES)
+    if not clientes:
+        print("❌ Nenhum cliente cadastrado.")
+        return
+
+    print("\n📋 Clientes disponíveis:")
+    for cliente in clientes:
+        print(f"- ID: {cliente['id']} | Nome: {cliente['nome']}")
+
+    cliente_id = input("Informe o ID do cliente: ").strip()
+
+    if not any(c["id"] == cliente_id for c in clientes):
+        print("❌ Cliente não encontrado.")
+        return
+
+    itens = []
+    while True:
+        nome = input("🍣 Nome do item: ")
+        preco = float(input("💵 Preço do item (R$): "))
+        itens.append({"nome": nome, "preco": preco})
+
+        continuar = input("➕ Adicionar mais itens? (s/n): ").strip().lower()
+        if continuar != "s":
+            break
+
+    pedidos = carregar_dados(CAMINHO_PEDIDOS)
+    novo_id = str(uuid.uuid4())
+    pedido = Pedido(novo_id, cliente_id, itens)
+    pedidos.append(pedido.to_dict())
+    salvar_dados(CAMINHO_PEDIDOS, pedidos)
+
+    print(f"\n✅ Pedido registrado com sucesso! Total: R$ {pedido.to_dict()['total']:.2f}")

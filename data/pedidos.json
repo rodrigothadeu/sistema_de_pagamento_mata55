@@ -1,22 +1,13 @@
 [
     {
-        "id": "4e154e91-b7d4-48bd-badd-27f1d24c7b8d",
-        "cliente_id": "26e3cd87-b808-4023-b5da-58cf24cacede",
+        "id": "0da24f44-c6f7-4e12-b6cb-6afbc19aef17",
+        "cliente_id": "a917db24-17c0-4da6-9ad1-095378dde8bb",
         "itens": [
-            "Combinado Simples",
-            "Combinado Especial",
-            "Uramaki"
+            {
+                "nome": "Sushi de Salmão",
+                "preco": 32.0
+            }
         ],
-        "valor_total": 108.0
-    },
-    {
-        "id": "2246cf5e-485e-45cb-8b01-636305d14ea3",
-        "cliente_id": "79ce9721-3d39-4d88-b0e1-3f03215a1820",
-        "itens": [
-            "Sashimi",
-            "Combinado Especial",
-            "Sunomono"
-        ],
-        "valor_total": 88.0
+        "total": 32.0
     }
 ]
